@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareLine - Consultation</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container nav-container">
+
+            <div class="logo">
+                CareLine
+            </div>
+
+            <nav>
+                <a href="/">Home</a>
+                <button
+                    class="btn btn-danger"
+                    onclick="leaveConsultation()"
+                >
+                    Leave Consultation
+                </button>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+                <div>
+                    <h1>Online Consultation</h1>
+                    <p>
+                        Your CareLine doctor consultation is in progress.
+                    </p>
+                </div>
+
+                <span class="status-badge accepted">
+                    Consultation Active
+                </span>
+            </div>
+
+
+            <div id="consultationMessage"></div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="dashboard-card">
+
+                    <h2>Patient Information</h2>
+
+                    <div id="patientDetails">
+                        Loading patient information...
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <h2>Consultation Information</h2>
+
+                    <div id="appointmentDetails">
+                        Loading consultation details...
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card consultation-room">
+
+                <h2>Video Consultation Room</h2>
+
+                <div class="video-placeholder">
+
+                    <div class="video-icon">
+                        🎥
+                    </div>
+
+                    <h3>CareLine Virtual Consultation</h3>
+
+                    <p>
+                        This diploma-project demo represents
+                        the online consultation room.
+                    </p>
+
+                    <p>
+                        Doctor and patient can communicate
+                        through the consultation interface.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h2>Consultation Status</h2>
+
+                <div id="consultationStatus">
+                    Checking consultation status...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 CareLine Telemedicine System
+            </p>
+
+            <p>
+                Diploma Project
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="/js/consultation.js"></script>
+
+</body>
+</html>

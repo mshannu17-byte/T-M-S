@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CareLine - Telemedicine System</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="main-header">
+
+        <div class="logo">
+            <span class="logo-icon">⚕</span>
+            <span>CareLine</span>
+        </div>
+
+        <nav id="main-navigation" class="navigation">
+            <button
+                type="button"
+                onclick="showHome()"
+            >
+                Home
+            </button>
+
+            <button
+                type="button"
+                onclick="showLogin()"
+            >
+                Login
+            </button>
+
+            <button
+                type="button"
+                onclick="showRegistration()"
+            >
+                Register
+            </button>
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTAINER
+    ====================================================== -->
+
+    <main class="main-container">
+
+
+        <!-- =================================================
+             HOME SECTION
+        ================================================== -->
+
+        <section
+            id="home-section"
+            class="page-section active-section"
+        >
+
+            <div class="hero-section">
+
+                <div class="hero-content">
+
+                    <h1>
+                        Welcome to
+                        <span>CareLine</span>
+                    </h1>
+
+                    <h2>
+                        Telemedicine System
+                    </h2>
+
+                    <p>
+                        Access healthcare services online,
+                        connect with doctors, manage appointments,
+                        and maintain your digital medical records.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <button
+                            class="primary-button"
+                            type="button"
+                            onclick="showLogin()"
+                        >
+                            Login
+                        </button>
+
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            onclick="showRegistration()"
+                        >
+                            Create Account
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-card">
+
+                    <div class="medical-icon">
+                        🩺
+                    </div>
+
+                    <h3>
+                        Healthcare From Anywhere
+                    </h3>
+
+                    <p>
+                        Consult approved doctors,
+                        book appointments and securely
+                        manage your health information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Features -->
+
+            <div class="features-section">
+
+                <h2>
+                    CareLine Features
+                </h2>
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍⚕️</div>
+                        <h3>Online Consultation</h3>
+                        <p>
+                            Connect with approved doctors
+                            through online consultations.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">📅</div>
+                        <h3>Appointments</h3>
+                        <p>
+                            Search doctors and book
+                            appointments easily.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">📋</div>
+                        <h3>Digital Records</h3>
+                        <p>
+                            View consultation details,
+                            prescriptions and medical records.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3>AI Health Chat</h3>
+                        <p>
+                            Discuss general health concerns
+                            through the CareLine chat assistant.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOGIN SECTION
+        ================================================== -->
+
+        <section
+            id="login-section"
+            class="page-section"
+        >
+
+            <div class="form-container">
+
+                <h2>
+                    Login to CareLine
+                </h2>
+
+                <p class="form-subtitle">
+                    Enter your registered email and password.
+                </p>
+
+                <form id="login-form">
+
+                    <div class="form-group">
+
+                        <label for="login-email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="login-email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="login-password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="login-password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button full-width"
+                    >
+                        Login
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="login-message"
+                    class="message"
+                ></div>
+
+
+                <div class="form-links">
+
+                    <button
+                        type="button"
+                        onclick="showForgotPassword()"
+                    >
+                        Forgot Password?
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="showRegistration()"
+                    >
+                        Create New Account
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REGISTRATION SECTION
+        ================================================== -->
+
+        <section
+            id="registration-section"
+            class="page-section"
+        >
+
+            <div class="form-container large-form">
+
+                <h2>
+                    Create CareLine Account
+                </h2>
+
+                <p class="form-subtitle">
+                    Select your account type.
+                </p>
+
+
+                <!-- Registration Type -->
+
+                <div class="registration-tabs">
+
+                    <button
+                        type="button"
+                        id="patient-registration-tab"
+                        class="registration-tab active-tab"
+                        onclick="showRegistrationForm('patient')"
+                    >
+                        Patient
+                    </button>
+
+                    <button
+                        type="button"
+                        id="doctor-registration-tab"
+                        class="registration-tab"
+                        onclick="showRegistrationForm('doctor')"
+                    >
+                        Doctor
+                    </button>
+
+                </div>
+
+
+                <!-- Patient Registration -->
+
+                <form
+                    id="patient-registration-form"
+                    class="registration-form"
+                >
+
+                    <h3>
+                        Patient Registration
+                    </h3>
+
+
+                    <div class="two-column">
+
+                        <div class="form-group">
+
+                            <label for="patient-name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="patient-name"
+                                placeholder="Enter full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="patient-email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="patient-email"
+                                placeholder="Enter email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="two-column">
+
+                        <div class="form-group">
+
+                            <label for="patient-phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="patient-phone"
+                                placeholder="10 digit phone number"
+                                maxlength="10"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="patient-password">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="patient-password"
+                                placeholder="Create password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="two-column">
+
+                        <div class="form-group">
+
+                            <label for="patient-dob">
+                                Date of Birth
+                            </label>
+
+                            <input
+                                type="date"
+                                id="patient-dob"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="patient-gender">
+                                Gender
+                            </label>
+
+                            <select id="patient-gender">
+
+                                <option value="">
+                                    Select Gender
+                                </option>
+
+                                <option value="Male">
+                                    Male
+                                </option>
+
+                                <option value="Female">
+                                    Female
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="patient-address">
+                            Address
+                        </label>
+
+                        <textarea
+                            id="patient-address"
+                            placeholder="Enter address"
+                            rows="3"
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="two-column">
+
+                        <div class="form-group">
+
+                            <label for="patient-blood-group">
+                                Blood Group
+                            </label>
+
+                            <select id="patient-blood-group">
+
+                                <option value="">
+                                    Select Blood Group
+                                </option>
+
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="patient-emergency">
+                                Emergency Contact
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="patient-emergency"
+                                placeholder="Emergency contact number"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button full-width"
+                    >
+                        Register as Patient
+                    </button>
+
+                </form>
+
+
+                <!-- Doctor Registration -->
+
+                <form
+                    id="doctor-registration-form"
+                    class="registration-form hidden"
+                >
+
+                    <h3>
+                        Doctor Registration
+                    </h3>
+
+                    <p class="info-box">
+                        Doctor accounts require admin approval
+                        before login.
+                    </p>
+
+
+                    <div class="two-column">
+
+                        <div class="form-group">
+
+                            <label for="doctor-name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="doctor-name"
+                                placeholder="Enter full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="doctor-email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="doctor-email"
+                                placeholder="Enter email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="two-column">
+
+                        <div class="form-group">
+
+                            <label for="doctor-phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="doctor-phone"
+                                placeholder="10 digit phone number"
+                                maxlength="10"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="doctor-password">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="doctor-password"
+                                placeholder="Create password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="two-column">
+
+                        <div class="form-group">
+
+                            <label for="doctor-specialization">
+                                Specialization
+                            </label>
+
+                            <input
+                                type="text"
+                                id="doctor-specialization"
+                                placeholder="Example: Cardiology"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="doctor-qualification">
+                                Qualification
+                            </label>
+
+                            <input
+                                type="text"
+                                id="doctor-qualification"
+                                placeholder="Example: MBBS, MD"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="two-column">
+
+                        <div class="form-group">
+
+                            <label for="doctor-experience">
+                                Experience
+                            </label>
+
+                            <input
+                                type="number"
+                                id="doctor-experience"
+                                placeholder="Years of experience"
+                                min="0"
+                                value="0"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="doctor-license">
+                                Medical License Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="doctor-license"
+                                placeholder="License number"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="two-column">
+
+                        <div class="form-group">
+
+                            <label for="doctor-fee">
+                                Consultation Fee
+                            </label>
+
+                            <input
+                                type="number"
+                                id="doctor-fee"
+                                placeholder="Fee in ₹"
+                                min="0"
+                                step="0.01"
+                                value="0"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="doctor-about">
+                                About Doctor
+                            </label>
+
+                            <input
+                                type="text"
+                                id="doctor-about"
+                                placeholder="Short description"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button full-width"
+                    >
+                        Submit Doctor Registration
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="registration-message"
+                    class="message"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FORGOT PASSWORD SECTION
+        ================================================== -->
+
+        <section
+            id="forgot-password-section"
+            class="page-section"
+        >
+
+            <div class="form-container">
+
+                <h2>
+                    Forgot Password
+                </h2>
+
+                <p class="form-subtitle">
+                    Enter your registered email address.
+                </p>
+
+                <form id="forgot-password-form">
+
+                    <div class="form-group">
+
+                        <label for="forgot-email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="forgot-email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button full-width"
+                    >
+                        Request Password Reset
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="forgot-message"
+                    class="message"
+                ></div>
+
+
+                <div class="form-links">
+
+                    <button
+                        type="button"
+                        onclick="showLogin()"
+                    >
+                        Back to Login
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PATIENT DASHBOARD
+        ================================================== -->
+
+        <section
+            id="patient-dashboard"
+            class="dashboard-section"
+        >
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <h2>
+                        Patient Dashboard
+                    </h2>
+
+                    <p id="patient-welcome">
+                        Welcome to CareLine
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    onclick="logout()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        👨‍⚕️ Find Doctors
+                    </h3>
+
+                    <p>
+                        Search approved doctors by
+                        specialization.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="loadDoctors()"
+                    >
+                        View Doctors
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        📅 My Appointments
+                    </h3>
+
+                    <p>
+                        View and manage your appointments.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="loadPatientAppointments()"
+                    >
+                        View Appointments
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        📋 Medical Records
+                    </h3>
+
+                    <p>
+                        View your digital medical records.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="loadPatientRecords()"
+                    >
+                        View Records
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        💬 AI Health Chat
+                    </h3>
+
+                    <p>
+                        Discuss general health concerns
+                        with the chat assistant.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="showPatientChat()"
+                    >
+                        Open Chat
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Doctor Search -->
+
+            <div
+                id="patient-doctors-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    Available Doctors
+                </h3>
+
+                <div class="search-row">
+
+                    <input
+                        type="text"
+                        id="doctor-search"
+                        placeholder="Search by specialization"
+                    >
+
+                    <button
+                        type="button"
+                        onclick="loadDoctors()"
+                    >
+                        Search
+                    </button>
+
+                </div>
+
+                <div
+                    id="doctors-list"
+                    class="data-grid"
+                ></div>
+
+            </div>
+
+
+            <!-- Appointments -->
+
+            <div
+                id="patient-appointments-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    My Appointments
+                </h3>
+
+                <div
+                    id="patient-appointments-list"
+                    class="data-list"
+                ></div>
+
+            </div>
+
+
+            <!-- Medical Records -->
+
+            <div
+                id="patient-records-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    Digital Medical Records
+                </h3>
+
+                <div
+                    id="patient-records-list"
+                    class="data-list"
+                ></div>
+
+            </div>
+
+
+            <!-- Consultation History -->
+
+            <div
+                id="patient-consultations-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    Consultation History
+                </h3>
+
+                <div
+                    id="patient-consultations-list"
+                    class="data-list"
+                ></div>
+
+            </div>
+
+
+            <!-- AI Chat -->
+
+            <div
+                id="patient-chat-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    CareLine AI Health Chat
+                </h3>
+
+                <p class="warning-text">
+                    This chat provides general information only.
+                    It is not a replacement for a qualified doctor.
+                </p>
+
+                <div
+                    id="chat-messages"
+                    class="chat-box"
+                ></div>
+
+                <div class="chat-input-row">
+
+                    <input
+                        type="text"
+                        id="chat-input"
+                        placeholder="Describe your general health concern..."
+                    >
+
+                    <button
+                        type="button"
+                        onclick="sendChatMessage()"
+                    >
+                        Send
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DOCTOR DASHBOARD
+        ================================================== -->
+
+        <section
+            id="doctor-dashboard"
+            class="dashboard-section"
+        >
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <h2>
+                        Doctor Dashboard
+                    </h2>
+
+                    <p id="doctor-welcome">
+                        Welcome to CareLine
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    onclick="logout()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        📅 Appointment Requests
+                    </h3>
+
+                    <p>
+                        View and manage patient appointments.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="loadDoctorAppointments()"
+                    >
+                        View Appointments
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        👤 Doctor Profile
+                    </h3>
+
+                    <p>
+                        View your professional information.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="loadDoctorProfile()"
+                    >
+                        View Profile
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        📋 Patient Records
+                    </h3>
+
+                    <p>
+                        View information of your patients.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="showDoctorPatients()"
+                    >
+                        Patient Information
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Doctor Appointments -->
+
+            <div
+                id="doctor-appointments-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    Patient Appointments
+                </h3>
+
+                <div
+                    id="doctor-appointments-list"
+                    class="data-list"
+                ></div>
+
+            </div>
+
+
+            <!-- Doctor Profile -->
+
+            <div
+                id="doctor-profile-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    My Profile
+                </h3>
+
+                <div
+                    id="doctor-profile-details"
+                    class="profile-card"
+                ></div>
+
+            </div>
+
+
+            <!-- Patient Information -->
+
+            <div
+                id="doctor-patient-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    Patient Information
+                </h3>
+
+                <div
+                    id="doctor-patient-details"
+                    class="data-list"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ADMIN DASHBOARD
+        ================================================== -->
+
+        <section
+            id="admin-dashboard"
+            class="dashboard-section"
+        >
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <h2>
+                        Admin Dashboard
+                    </h2>
+
+                    <p>
+                        CareLine System Administration
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    onclick="logout()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        👨‍⚕️ Doctor Requests
+                    </h3>
+
+                    <p>
+                        Review new doctor registration requests.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="loadPendingDoctors()"
+                    >
+                        Review Requests
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        👨‍⚕️ Manage Doctors
+                    </h3>
+
+                    <p>
+                        View, deactivate or reactivate doctors.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="loadAllDoctors()"
+                    >
+                        Manage Doctors
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        👥 Patients
+                    </h3>
+
+                    <p>
+                        View registered patients.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="loadAllPatients()"
+                    >
+                        View Patients
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        📅 Appointments
+                    </h3>
+
+                    <p>
+                        Monitor system appointments.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="loadAllAppointments()"
+                    >
+                        View Appointments
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Pending Doctors -->
+
+            <div
+                id="admin-pending-doctors-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    Doctor Registration Requests
+                </h3>
+
+                <div
+                    id="pending-doctors-list"
+                    class="data-list"
+                ></div>
+
+            </div>
+
+
+            <!-- All Doctors -->
+
+            <div
+                id="admin-doctors-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    Manage Doctors
+                </h3>
+
+                <div
+                    id="admin-doctors-list"
+                    class="data-list"
+                ></div>
+
+            </div>
+
+
+            <!-- Patients -->
+
+            <div
+                id="admin-patients-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    Registered Patients
+                </h3>
+
+                <div
+                    id="admin-patients-list"
+                    class="data-list"
+                ></div>
+
+            </div>
+
+
+            <!-- Appointments -->
+
+            <div
+                id="admin-appointments-area"
+                class="dashboard-area"
+            >
+
+                <h3>
+                    All Appointments
+                </h3>
+
+                <div
+                    id="admin-appointments-list"
+                    class="data-list"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             APPOINTMENT MODAL
+        ================================================== -->
+
+        <div
+            id="appointment-modal"
+            class="modal hidden"
+        >
+
+            <div class="modal-content">
+
+                <button
+                    type="button"
+                    class="close-button"
+                    onclick="closeAppointmentModal()"
+                >
+                    ×
+                </button>
+
+                <h2>
+                    Book Appointment
+                </h2>
+
+                <p id="selected-doctor-name"></p>
+
+                <input
+                    type="hidden"
+                    id="selected-doctor-id"
+                >
+
+
+                <div class="form-group">
+
+                    <label for="appointment-date">
+                        Appointment Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="appointment-date"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="appointment-time">
+                        Appointment Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="appointment-time"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="appointment-reason">
+                        Reason for Consultation
+                    </label>
+
+                    <textarea
+                        id="appointment-reason"
+                        rows="4"
+                        placeholder="Describe the reason for your appointment"
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-button full-width"
+                    onclick="bookAppointment()"
+                >
+                    Confirm Appointment
+                </button>
+
+
+                <div
+                    id="appointment-message"
+                    class="message"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CONSULTATION MODAL
+        ================================================== -->
+
+        <div
+            id="consultation-modal"
+            class="modal hidden"
+        >
+
+            <div class="modal-content large-modal">
+
+                <button
+                    type="button"
+                    class="close-button"
+                    onclick="closeConsultationModal()"
+                >
+                    ×
+                </button>
+
+                <h2>
+                    Complete Consultation
+                </h2>
+
+                <input
+                    type="hidden"
+                    id="consultation-appointment-id"
+                >
+
+                <input
+                    type="hidden"
+                    id="consultation-patient-id"
+                >
+
+
+                <div class="form-group">
+
+                    <label for="consultation-symptoms">
+                        Symptoms
+                    </label>
+
+                    <textarea
+                        id="consultation-symptoms"
+                        rows="4"
+                        placeholder="Enter patient's symptoms"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="consultation-diagnosis">
+                        Diagnosis
+                    </label>
+
+                    <textarea
+                        id="consultation-diagnosis"
+                        rows="4"
+                        placeholder="Enter diagnosis"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="consultation-prescription">
+                        Prescription
+                    </label>
+
+                    <textarea
+                        id="consultation-prescription"
+                        rows="4"
+                        placeholder="Enter prescription"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="consultation-notes">
+                        Doctor Notes
+                    </label>
+
+                    <textarea
+                        id="consultation-notes"
+                        rows="4"
+                        placeholder="Enter additional notes"
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-button full-width"
+                    onclick="completeConsultation()"
+                >
+                    Complete Consultation
+                </button>
+
+
+                <div
+                    id="consultation-message"
+                    class="message"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="main-footer">
+
+        <p>
+            © 2026 CareLine Telemedicine System
+        </p>
+
+        <p>
+            Diploma Project
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT FILES
+    ====================================================== -->
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/patient.js"></script>
+    <script src="/js/doctor.js"></script>
+    <script src="/js/admin.js"></script>
+
+</body>
+</html>
