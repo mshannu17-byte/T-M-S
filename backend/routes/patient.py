@@ -350,7 +350,7 @@ def book_appointment():
         # Check doctor
         cursor.execute(
             """
-            SELECT id
+            SELECT d.id
             FROM doctors d
             JOIN users u
                 ON d.user_id = u.id
@@ -608,6 +608,91 @@ def cancel_appointment(appointment_id):
 
     finally:
 
+        if cursor:
+            cursor.close()
+
+        connection.close()
+
+
+# =========================================================
+# COMPLETE APPOINTMENT
+# =========================================================
+
+@patient_bp.route(
+    "/appointments/<int:appointment_id>/complete",
+    methods=["PUT"]
+)
+def complete_appointment(appointment_id):
+
+    data = request.get_json() or {}
+    user_id = data.get("user_id")
+
+    if not user_id:
+        return jsonify({
+            "success": False,
+            "message": "User ID is required."
+        }), 400
+
+    connection = get_db_connection()
+
+    if connection is None:
+        return jsonify({
+            "success": False,
+            "message": "Database connection failed."
+        }), 500
+
+    cursor = None
+
+    try:
+        cursor = connection.cursor(dictionary=True)
+
+        cursor.execute(
+            """
+            SELECT a.id
+            FROM appointments a
+            JOIN patients p
+                ON a.patient_id = p.id
+            WHERE a.id = %s
+              AND p.user_id = %s
+              AND a.status IN ('accepted', 'completed')
+            """,
+            (appointment_id, user_id)
+        )
+
+        appointment = cursor.fetchone()
+
+        if not appointment:
+            return jsonify({
+                "success": False,
+                "message": "Accepted appointment not found."
+            }), 404
+
+        cursor.execute(
+            """
+            UPDATE appointments
+            SET status = 'completed'
+            WHERE id = %s
+            """,
+            (appointment_id,)
+        )
+
+        connection.commit()
+
+        return jsonify({
+            "success": True,
+            "message": "Consultation completed successfully."
+        }), 200
+
+    except Exception as error:
+        connection.rollback()
+        print("Complete appointment error:", error)
+
+        return jsonify({
+            "success": False,
+            "message": "Unable to complete appointment."
+        }), 500
+
+    finally:
         if cursor:
             cursor.close()
 

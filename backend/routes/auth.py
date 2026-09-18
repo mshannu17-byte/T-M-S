@@ -26,6 +26,12 @@ def register_patient():
     phone = data.get("phone", "").strip()
     password = data.get("password", "")
 
+    date_of_birth = data.get("date_of_birth")
+    gender = data.get("gender")
+    address = data.get("address", "").strip()
+    blood_group = data.get("blood_group")
+    emergency_contact = data.get("emergency_contact", "").strip()
+
     if not full_name or not email or not password:
         return jsonify({
             "success": False,
@@ -83,10 +89,24 @@ def register_patient():
         cursor.execute(
             """
             INSERT INTO patients
-            (user_id)
-            VALUES (%s)
+            (
+                user_id,
+                date_of_birth,
+                gender,
+                address,
+                blood_group,
+                emergency_contact
+            )
+            VALUES (%s, %s, %s, %s, %s, %s)
             """,
-            (user_id,)
+            (
+                user_id,
+                date_of_birth,
+                gender,
+                address,
+                blood_group,
+                emergency_contact
+            )
         )
 
         connection.commit()

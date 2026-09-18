@@ -20,7 +20,7 @@ async function loadAdminDashboard() {
 
 async function loadPendingDoctors() {
     const container =
-        document.getElementById("pendingDoctorsList");
+        document.getElementById("pending-doctors-list");
 
     if (!container) {
         return;
@@ -150,14 +150,14 @@ async function loadPendingDoctors() {
 
                     <button
                         class="btn btn-success"
-                        onclick="approveDoctor(${doctor.id})"
+                        onclick="approveDoctor(${doctor.doctor_id})"
                     >
                         Approve
                     </button>
 
                     <button
                         class="btn btn-danger"
-                        onclick="rejectDoctor(${doctor.id})"
+                        onclick="rejectDoctor(${doctor.doctor_id})"
                     >
                         Reject
                     </button>
@@ -327,7 +327,7 @@ async function rejectDoctor(doctorId) {
 async function loadAllDoctors() {
 
     const container =
-        document.getElementById("allDoctorsList");
+        document.getElementById("admin-doctors-list");
 
     if (!container) {
         return;
@@ -639,7 +639,7 @@ async function reactivateDoctor(doctorId) {
 async function loadAllPatients() {
 
     const container =
-        document.getElementById("allPatientsList");
+        document.getElementById("admin-patients-list");
 
     if (!container) {
         return;
@@ -774,7 +774,7 @@ async function loadAllPatients() {
 async function loadAllAppointments() {
 
     const container =
-        document.getElementById("allAppointmentsList");
+        document.getElementById("admin-appointments-list");
 
     if (!container) {
         return;

@@ -206,7 +206,7 @@ SELECT
     'CareLine Administrator',
     'admin@careline.com',
     '9999999999',
-    'admin123',
+    'scrypt:32768:8:1$4Ir4OrkAWGm72B3R$9c1db0478afa518925f320deb102dc09cfeba71981c04a86441ac11154bc5b2bccde169328268b3e963223b072ad99a151f17a596c5d0aab8ce51b0f9646b3ce',
     'admin',
     'active'
 WHERE NOT EXISTS

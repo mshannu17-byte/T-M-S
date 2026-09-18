@@ -243,7 +243,7 @@ def get_appointments(user_id):
             SELECT
                 a.id,
                 a.appointment_date,
-                a.appointment_time,
+                CAST(a.appointment_time AS CHAR) AS appointment_time,
                 a.reason,
                 a.status,
                 a.meeting_link,
@@ -567,7 +567,8 @@ def complete_consultation():
             SELECT
                 a.id,
                 a.patient_id,
-                a.doctor_id
+                a.doctor_id,
+                a.status
 
             FROM appointments a
 
@@ -576,7 +577,7 @@ def complete_consultation():
 
             WHERE a.id = %s
               AND d.user_id = %s
-              AND a.status = 'accepted'
+              AND a.status IN ('accepted', 'completed')
             """,
             (
                 appointment_id,
@@ -591,6 +592,12 @@ def complete_consultation():
                 "success": False,
                 "message": "Accepted appointment not found."
             }), 404
+
+        if appointment["status"] == "completed":
+            return jsonify({
+                "success": True,
+                "message": "Consultation is already completed."
+            }), 200
 
         # Create consultation record
         cursor.execute(

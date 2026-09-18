@@ -362,6 +362,10 @@ function showDashboard(user) {
             .getElementById("admin-dashboard")
             .classList.add("active-section");
 
+        if (typeof initializeAdminDashboard === "function") {
+            initializeAdminDashboard();
+        }
+
     } else {
 
         showHome();

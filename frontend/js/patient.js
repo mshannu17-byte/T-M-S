@@ -189,7 +189,7 @@ async function loadDoctors() {
                                     type="button"
                                     class="action-button action-primary"
                                     onclick="openAppointmentModal(
-                                        ${doctor.id},
+                                        ${doctor.doctor_id},
                                         '${escapeJs(
                                             doctor.full_name
                                         )}'
@@ -349,7 +349,7 @@ async function bookAppointment() {
 
                 body: JSON.stringify({
 
-                    patient_id:
+                    user_id:
                         currentUser.id,
 
                     doctor_id:
@@ -655,7 +655,13 @@ async function cancelAppointment(
             await fetch(
                 `/api/patient/appointments/${appointmentId}/cancel`,
                 {
-                    method: "PUT"
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        user_id: currentUser.id
+                    })
                 }
             );
 
